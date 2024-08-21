@@ -98,7 +98,7 @@ func cubeInput(step float64, direction Vector2) (float64, Vector2) {
 }
 
 func RunCube() {
-	var cube = cube3D(200.0)
+	var cube = cube3D(300.0)
 	var step = 0.001
 	direction := vector2(1.0, 1.0)
 	for !rl.WindowShouldClose() {
@@ -106,7 +106,7 @@ func RunCube() {
 		step, direction = cubeInput(step, direction)
 		rl.ClearBackground(rl.Black)
 		for _, v := range cube.vertices {
-			rl.DrawCircle(int32(v.x+centerX), int32(v.y+centerY), float32(v.z)*0.1+25.0, rl.White)
+			rl.DrawCircle(int32(v.x+centerX), int32(v.y+centerY), float32(v.z)*0.1+25.0, rl.Red)
 		}
 		cube3Dpitch(&cube, step*direction.x)
 		cube3Dyaw(&cube, step*direction.y)

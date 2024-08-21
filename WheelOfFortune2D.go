@@ -1,10 +1,13 @@
 package main
 
-import rl "github.com/gen2brain/raylib-go/raylib"
-import "fmt"
-import "math"
+import (
+	"fmt"
+	"math"
 
-const pointCount = 60
+	rl "github.com/gen2brain/raylib-go/raylib"
+)
+
+const pointCount = 180
 
 var buttonBuffer = 0
 
@@ -47,7 +50,7 @@ func RunWheel() {
 		wheelInput(&speed)
 		rl.ClearBackground(rl.Black)
 		for i, v := range arrayVec {
-			rl.DrawCircle(int32(v.x*radius)+centerX, int32(v.y*radius)+centerY, 10.0, rl.Red)
+			rl.DrawCircle(int32(v.x*radius)+centerX, int32(v.y*radius)+centerY, 800/pointCount, rl.Red)
 			arrayVec[i] = moveVector2Degree(arrayVec[i], 0.01*speed)
 		}
 		speedText := fmt.Sprintf("Speed: %.2f", speed)
