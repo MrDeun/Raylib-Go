@@ -33,13 +33,13 @@ func controlSphere(sphere *Sphere3D, step float64) {
 
 func sphere3D(size float64, vertical_points int, horizontal_point int) Sphere3D {
 	var array = []Vector3{}
-	for i := -vertical_points; i < vertical_points; i++ {
-		for j := -horizontal_point; j < horizontal_point; j++ {
+	for i := vertical_points; i > -vertical_points; i-- {
+		for j := horizontal_point; j > -horizontal_point; j-- {
 			angle := fullCircle / float64(j)
 			veritce := vector3(
-				-math.Cos(angle)*float64(size)*float64(j),
+				math.Cos(angle)*float64(size)*float64(j),
 				float64(i)*float64(size),
-				-math.Sin(angle)*float64(size)*float64(j))
+				math.Sin(angle)*float64(size)*float64(j))
 			array = append(array, veritce)
 		}
 	}
@@ -85,7 +85,7 @@ func (sphere *Sphere3D) pitch(step float64) {
 }
 
 func RunSphere() {
-	var sphere = sphere3D(15.0, 16, 16)
+	var sphere = sphere3D(15.0, 128, 128)
 	const step = 0.01
 	for !rl.WindowShouldClose() {
 		rl.BeginDrawing()
