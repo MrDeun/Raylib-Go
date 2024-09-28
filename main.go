@@ -15,6 +15,8 @@ func choiceInput() rune {
 		return '1'
 	} else if rl.IsKeyPressed(rl.KeyTwo) {
 		return '2'
+	} else if rl.IsKeyPressed(rl.KeyThree) {
+		return '3'
 	} else {
 		return 'n'
 	}
@@ -35,6 +37,9 @@ func main() {
 			chosen = true
 		case '2':
 			RunCube()
+			chosen = true
+		case '3':
+			RunSphere()
 			chosen = true
 		default:
 			rl.BeginDrawing()

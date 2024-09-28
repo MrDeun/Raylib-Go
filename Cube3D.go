@@ -33,7 +33,7 @@ func cube3D(size float64) Cube3D {
 	return Cube3D{position: position, rotation: rotation, vertices: vertices}
 }
 
-func cube3Dyaw(cube *Cube3D, step float64) {
+func (cube *Cube3D) yaw(step float64) {
 	cube.rotation = vector3addscalar(cube.rotation, step)
 	yaw := yawMatrix(step)
 	for i := range cube.vertices {
@@ -46,7 +46,7 @@ func cube3Dyaw(cube *Cube3D, step float64) {
 		cube.vertices[i].z = (yaw[2][0] * x) + (yaw[2][1] * y) + (yaw[2][2] * z)
 	}
 }
-func cube3Dpitch(cube *Cube3D, step float64) {
+func (cube *Cube3D) pitch(step float64) {
 	cube.rotation = vector3addscalar(cube.rotation, step)
 	pitch := pitchMatrix(step)
 	for i := range cube.vertices {
@@ -60,7 +60,7 @@ func cube3Dpitch(cube *Cube3D, step float64) {
 	}
 }
 
-func cube3Droll(cube *Cube3D, step float64) {
+func (cube *Cube3D) roll(step float64) {
 	cube.rotation = vector3addscalar(cube.rotation, step)
 	roll := rollMatrix(step)
 	for i := range cube.vertices {
@@ -106,10 +106,10 @@ func RunCube() {
 		step, direction = cubeInput(step, direction)
 		rl.ClearBackground(rl.Black)
 		for _, v := range cube.vertices {
-			rl.DrawCircle(int32(v.x+centerX), int32(v.y+centerY), float32(v.z)*0.1+25.0, rl.Red)
+			rl.DrawCircle(int32(v.x+centerX), int32(v.y+centerY), 0.1, rl.Red)
 		}
-		cube3Dpitch(&cube, step*direction.x)
-		cube3Dyaw(&cube, step*direction.y)
+		cube.pitch(step * direction.x)
+		cube.yaw(step * direction.y)
 
 		speedText := fmt.Sprintf("Speed: %.04f", step)
 		vectorText := fmt.Sprintf("Directional Vector: (%f,%f)", direction.x, direction.y)
