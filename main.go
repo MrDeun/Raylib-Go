@@ -36,10 +36,10 @@ func main() {
 			RunWheel()
 			chosen = true
 		case '2':
-			RunCube()
+			PlayCube3D()
 			chosen = true
 		case '3':
-			RunSphere()
+			//RunSphere()
 			chosen = true
 		default:
 			rl.BeginDrawing()
