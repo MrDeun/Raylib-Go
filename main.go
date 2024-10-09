@@ -39,7 +39,7 @@ func main() {
 			PlayCube3D()
 			chosen = true
 		case '3':
-			//RunSphere()
+			PlaySphere3D()
 			chosen = true
 		default:
 			rl.BeginDrawing()
@@ -47,6 +47,7 @@ func main() {
 			rl.DrawText("Test app - pick a program", centerX, centerY-10.0, 10.0, rl.White)
 			rl.DrawText("1. Wheel Of Fortune", centerX, centerY, 10.0, rl.White)
 			rl.DrawText("2. 2D Rotaing Cube", centerX, centerY+10.0, 10.0, rl.White)
+			rl.DrawText("3. 2D Rotating Cylinder (WIP)", centerX, centerY+20.0, 10.0, rl.White)
 			rl.EndDrawing()
 		}
 	}
