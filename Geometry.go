@@ -7,6 +7,8 @@ type Geometry struct {
 	rotation Vector3
 
 	verticies []Vector3
+	lines     []Line3D
+	triangles [][3]*Vector3
 }
 
 func (geo *Geometry) Control(step float64) {
