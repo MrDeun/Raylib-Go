@@ -32,6 +32,10 @@ func Cube3D(size float64) Geometry {
 
 	triangles_arr := [][3]*Vector3{
 		{&vertices_arr[0], &vertices_arr[1], &vertices_arr[2]},
+		{&vertices_arr[0], &vertices_arr[3], &vertices_arr[2]},
+
+		{&vertices_arr[4], &vertices_arr[5], &vertices_arr[6]},
+		{&vertices_arr[4], &vertices_arr[7], &vertices_arr[6]},
 	}
 
 	geo := Geometry{

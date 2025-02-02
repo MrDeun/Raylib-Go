@@ -4,6 +4,8 @@ import (
 	rl "github.com/gen2brain/raylib-go/raylib"
 )
 
+z_buffer := []float32{}
+
 func PlayCube3D() {
 	cube := Cube3D(512)
 	step := 0.01
